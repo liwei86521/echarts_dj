@@ -7,7 +7,7 @@ Django环境搭建:
  pycharm + python3.6 + django2.2 
  pip install mysqlclient
 
-
+```python
 line_demo.html
 function line_charts_lc(){
     $.ajax({
@@ -25,7 +25,9 @@ function line_charts_lc(){
         }
     })
 }
+```
 
+```python
 settings.py
 DATABASES = {
     'default': {
@@ -35,7 +37,9 @@ DATABASES = {
         'PASSWORD': 'admin',
     }
 }
+```
 
+```python
 models.py
 class Linecharts(models.Model):
     linetime = models.DateTimeField(blank=True, null=True)
@@ -44,7 +48,9 @@ class Linecharts(models.Model):
     class Meta:
         managed = False
         db_table = 'linecharts'
+```
 
+```python
 view.py
 def line_chars(request):
     if request.method == 'POST':
@@ -64,3 +70,4 @@ def line_chars(request):
         return HttpResponse(result, content_type='application/json')
 
     return render(request, 'line_demo.html', locals())
+```
